@@ -5,40 +5,106 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Googlesheets</title>
+    <title>Google Sheets Clone</title>
     <style>
         * {
             box-sizing: border-box;
             padding: 0;
             margin: 0;
+            font-family: Arial, sans-serif;
         }
 
+        /* Header Container */
+        #header {
+            display: flex;
+            align-items: center;
+            background: #f8f9fa; /* Light gray background like Google Sheets */
+            padding: 6px 12px;
+            border-bottom: 1px solid #dfe1e5;
+        }
+
+        /* Left Side: Title */
+        #header-title {
+            font-weight: bold;
+            margin-right: 20px;
+            color: #202124;
+            font-size: 14px;
+        }
+
+        /* Menu Bar */
+        #menu-bar {
+            flex: 1;
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu-item {
+            font-size: 13px;
+            color: #5f6368;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            text-decoration: underline;
+        }
+
+        /* Share Button */
+        #share-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #share-btn {
+            background: #1a73e8; /* Google Blue */
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #share-btn:hover {
+            background: #1669c1;
+        }
+
+        /* Spreadsheet Canvas */
         #spreadsheet {
             border: 1px solid black;
             width: 1024px;
             height: 1024px;
-        }
-
-        #selectedCellBorder,
-        #selectedRange,
-        #selectedCellFormula,
-        #textInput {
-            position: absolute;
-        }
-
-        #textInput {
-            display: none;
+            margin-top: 10px;
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.2.0/math.js"></script>
 </head>
 
 <body>
+
+    <!-- Google Sheets-like Header -->
+    <div id="header">
+        <div id="header-title">Field Trip Checklist</div>
+        <div id="menu-bar">
+            <span class="menu-item">File</span>
+            <span class="menu-item">Edit</span>
+            <span class="menu-item">View</span>
+            <span class="menu-item">Insert</span>
+            <span class="menu-item">Format</span>
+            <span class="menu-item">Data</span>
+            <span class="menu-item">Tools</span>
+            <span class="menu-item">Add-ons</span>
+            <span class="menu-item">Help</span>
+        </div>
+        <div id="share-container">
+            <button id="share-btn">Share</button>
+        </div>
+    </div>
+
+    <!-- Spreadsheet Canvas -->
     <canvas id="spreadsheet"></canvas>
-    <div id="selectedCellBorder"></div>
-    <div id="selectedCellFormula"></div>
-    <div id="selectedRange"></div>
-    <div contenteditable="true" id="textInput"></div>
+
     <script src="app.js"></script>
 
 </body>
